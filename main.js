@@ -48,6 +48,14 @@ window.addEventListener('load', () => {
         })
     }
 
+    let changeSlide = () => {
+        transformSlideContent(title, 'title', 'hideDown');
+        transformSlideContent(subtitle, 'subtitle', 'hideDown');
+        transformSlideContent(sale, 'sale', 'hideDown', '%', '-');
+        transformSlideContent(currentPrice, 'currentPrice', 'hideUp', 'руб.');
+        transformSlideContent(oldPrice, 'oldPrice', 'hideUp', 'руб.');
+    }
+
     let autoSwipeSlider = setInterval(() => {
         if (sliderPosition > COUNT_TRANSLATE_IMAGE - 100) {
             currentSlide += 1;
@@ -56,11 +64,7 @@ window.addEventListener('load', () => {
             productsImage.style.transform = `translateX(${(sliderPosition)}%)`; 
             
             //Меняем контент
-            transformSlideContent(title, 'title', 'hideDown');
-            transformSlideContent(subtitle, 'subtitle', 'hideDown');
-            transformSlideContent(sale, 'sale', 'hideDown', '%', '-');
-            transformSlideContent(currentPrice, 'currentPrice', 'hideUp', 'руб.');
-            transformSlideContent(oldPrice, 'oldPrice', 'hideUp', 'руб.');
+            changeSlide();
         } else {
             clearInterval(autoSwipeSlider);
         }
@@ -92,11 +96,18 @@ window.addEventListener('load', () => {
             productsImage.style.transform = `translateX(${(sliderPosition)}%)`; 
             
             //Меняем контент
-            transformSlideContent(title, 'title', 'hideDown');
-            transformSlideContent(subtitle, 'subtitle', 'hideDown');
-            transformSlideContent(sale, 'sale', 'hideDown', '%', '-');
-            transformSlideContent(currentPrice, 'currentPrice', 'hideUp', 'руб.');
-            transformSlideContent(oldPrice, 'oldPrice', 'hideUp', 'руб.');
+            changeSlide();
+        } else {
+            currentSlide = 0;
+
+            // Меняем фото
+            sliderPosition = 0;
+            productsImage.style.opacity = 0; 
+            productsImage.style.transform = `translate(${(sliderPosition)}%)`; 
+            productsImage.style.opacity = 1; 
+
+            //Меняем контент
+            changeSlide();
         }
     })
 
@@ -110,11 +121,16 @@ window.addEventListener('load', () => {
             productsImage.style.transform = `translateX(${(sliderPosition)}%)`;  
             
             //Меняем контент
-            transformSlideContent(title, 'title', 'hideDown');
-            transformSlideContent(subtitle, 'subtitle', 'hideDown');
-            transformSlideContent(sale, 'sale', 'hideDown', '%', '-');
-            transformSlideContent(currentPrice, 'currentPrice', 'hideUp', 'руб.');
-            transformSlideContent(oldPrice, 'oldPrice', 'hideUp', 'руб.');
+            changeSlide();
+        } else {
+            currentSlide = products.length - 1;
+
+            //Меняем фото
+            sliderPosition = -COUNT_TRANSLATE_IMAGE * currentSlide;
+            productsImage.style.transform = `translateX(${(sliderPosition)}%)`;  
+            
+            //Меняем контент
+            changeSlide();
         }
     })
 })
