@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    max-width: calc(16 / 9 * 100vh);
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    background: url('./assets/images/bg.png'), center, center, no-repeat;
+    background-color: #F0A9B6;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: '';
+    padding: 0 5em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+@media (max-width: 780px) {
+    .banner {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 430px) {
+    .banner {
+        font-size: 7px;
+    }
+}
+
+.banner__img-block {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4em;
+}
+
+.banner__img-slider {
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    width: 20em;
+    height: 20em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner__arrow {
+    width: 20%;
+    border: none;
+    background: none;
+    transition: .5s;
+    z-index: 2;
+}
+
+.banner__arrow:hover {
+    opacity: 0.5;
+}
+
+.banner__slider {
+    width: 70%;
+    overflow: hidden;
+}
+
+.banner__products-image {
+    display: flex;
+    width: 300%;
+    transition: .3s;
+}
+
+.banner__img {
+    position: relative;
+    width: 33%;
+    max-height: 100%;
+    transform: rotate(5deg);
+}
+
+.banner__content {
+    width: 30%;
+    padding-top: 3em;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.banner__logo {
+    display: flex;
+    width: 100%;
+    align-self: flex-end;
+    margin-top: 2.7em;
+    animation-name: drop-logo;
+    animation-duration: .5s;
+}
+
+@keyframes drop-logo {
+    from {
+        transform: translateY(-100vh);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.banner__price {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.banner__price-current {
+    background: #EE1E82;
+    padding: 0 1.2em 0 0.3em;
+    font-size: 1.7em;
+    font-weight: 700;
+    margin: 0 0 0.1em 0;
+    display: block;
+    line-height: 2.1em;
+    transition: .3s;
+}
+
+.banner__price-old {
+    text-decoration: line-through;
+    font-size: 1.2em;
+    opacity: .5;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.5em;
+    transition: .3s;
+}
+
+.banner__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.banner__sale {
+    background-color: #EE1E82;
+    padding: 1px 6px;
+    margin: 0;
+    transition: .3s;
+}
+
+.banner__title {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1.7em;
+    font-weight: 800;
+    line-height: 1.7em;
+    transition: .3s;
+}
+
+.banner__subtitle {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1em;
+    transition: .3s;    
+}
+
+.hideDown {
+    transform: translateY(800%);
+}
+
+.hideUp {
+    transform: translateY(-800%);
+}
+
+.banner__order {
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    padding: 0.8em 0;
+    background: #fff;
+    transition: .5s;
+}
+
+.banner__order:hover {
+    background: #EE1E82;
+    color: #fff;
+}
